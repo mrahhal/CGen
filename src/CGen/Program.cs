@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using CGen.CommandLine;
+﻿using CGen.CommandLine;
 using Konsola;
 
 namespace CGen
@@ -14,6 +11,6 @@ namespace CGen
 			if (context == null)
 				return;
 			context.Command.ExecuteCommand();
-        }
+		}
 	}
 }
