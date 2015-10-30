@@ -1,5 +1,6 @@
 ﻿using CGen.CommandLine;
 using Konsola;
+using Konsola.Parser;
 
 namespace CGen
 {
@@ -7,10 +8,12 @@ namespace CGen
 	{
 		private static void Main(string[] args)
 		{
-			var context = CommandLineParser.Parse<Context>(args, new DefaultConsole());
-			if (context == null)
-				return;
-			context.Command.ExecuteCommand();
+			var parser = new CommandLineParser<Context>();
+			var result = parser.Parse(args);
+			if (result.Kind == ParsingResultKind.Success)
+			{
+				result.Context.Command.ExecuteCommand();
+			}
 		}
 	}
 }

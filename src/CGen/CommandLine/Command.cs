@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Konsola;
+using Konsola.Parser;
 
 namespace CGen.CommandLine
 {

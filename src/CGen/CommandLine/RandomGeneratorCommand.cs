@@ -1,5 +1,6 @@
 ﻿using Konsola;
-using Konsola.Constraints;
+using Konsola.Parser;
+//using Konsola.Constraints;
 
 namespace CGen.CommandLine
 {
@@ -8,7 +9,7 @@ namespace CGen.CommandLine
 	{
 		private const int DefaultLength = 64;
 
-		[Range(2, 1024, IsMaxInclusive = true)]
+		//[Range(2, 1024, IsMaxInclusive = true)]
 		[Parameter("length,l", Description = "how many bytes to generate")]
 		public int Length { get; set; } = DefaultLength;
 
