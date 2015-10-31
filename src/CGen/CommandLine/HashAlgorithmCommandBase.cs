@@ -43,11 +43,13 @@ namespace CGen.CommandLine
 
 		private string ComputeHash(string data)
 		{
-			var algorithm = CreateHashAlgoritshm();
-			var bytes = Encoding.Unicode.GetBytes(data);
-			return Util.ToHex(algorithm.ComputeHash(bytes));
+			using (var algorithm = CreateHashAlgorithm())
+			{
+				var bytes = Encoding.Unicode.GetBytes(data);
+				return Util.ToHex(algorithm.ComputeHash(bytes));
+			}
 		}
 
-		public abstract HashAlgorithm CreateHashAlgoritshm();
+		public abstract HashAlgorithm CreateHashAlgorithm();
 	}
 }
