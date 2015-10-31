@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CommandLine\Command.cs" />
     <Compile Include="CommandLine\Context.cs" />
+    <Compile Include="CommandLine\GuidGeneratorCommand.cs" />
     <Compile Include="CommandLine\RandomGeneratorCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
