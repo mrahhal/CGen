@@ -1,12 +1,14 @@
-﻿using Konsola;
-using Konsola.Parser;
+﻿using Konsola.Parser;
 
 namespace CGen.CommandLine
 {
 	[Command("rand", Description = "generate cryptographically random bytes")]
 	public class RandomGeneratorCommand : Command
 	{
-		[Parameter("length,l", Description = "how many bytes to generate", Position = 1, Default = 64)]
+		[Parameter("length,l",
+			Description = "how many bytes to generate",
+			Default = 64,
+			Position = 1)]
 		public int Length { get; set; }
 
 		[OnParsed]
