@@ -66,7 +66,7 @@ namespace CGen
 
 		public static byte[] RandomBytes(int length)
 		{
-			if (length < 2)
+			if (length < 1)
 				throw new ArgumentOutOfRangeException(nameof(length));
 
 			var crypto = new RNGCryptoServiceProvider();

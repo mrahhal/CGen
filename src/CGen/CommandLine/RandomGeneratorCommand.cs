@@ -14,7 +14,7 @@ namespace CGen.CommandLine
 		[OnParsed]
 		public void OnParsed()
 		{
-			if (Length < 2 || Length > 1024)
+			if (Length < 1 || Length > 1024)
 			{
 				throw new CommandLineException("length should be between 2 and 1024");
 			}
