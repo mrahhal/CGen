@@ -8,7 +8,7 @@ namespace CGen
 {
 	public static class Util
 	{
-		private static string[] s_hexMap = Enumerable.Range(0, 256).Select(v => v.ToString("X2")).ToArray();
+		private static string[] s_hexMap = Enumerable.Range(0, 256).Select(v => v.ToString("x2")).ToArray();
 
 		public static string ToHex(byte[] array)
 		{
