@@ -7,7 +7,7 @@ namespace CGen.CommandLine
 {
 	public abstract class HashAlgorithmCommandBase : Command
 	{
-		[Parameter("data", Description = "the data to hash")]
+		[Parameter("data", Description = "the data to hash", Position = 1)]
 		public string Data { get; set; }
 
 		[Parameter("input", Description = "the file's name or path that contains the data to hash")]
