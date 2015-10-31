@@ -1,17 +1,22 @@
 ﻿using Konsola;
 using Konsola.Parser;
-//using Konsola.Constraints;
 
 namespace CGen.CommandLine
 {
 	[Command("rand", Description = "generate cryptographically random bytes")]
 	public class RandomGeneratorCommand : Command
 	{
-		private const int DefaultLength = 64;
+		[Parameter("length,l", Description = "how many bytes to generate", Position = 1, Default = 64)]
+		public int Length { get; set; }
 
-		//[Range(2, 1024, IsMaxInclusive = true)]
-		[Parameter("length,l", Description = "how many bytes to generate")]
-		public int Length { get; set; } = DefaultLength;
+		[OnParsed]
+		public void OnParsed()
+		{
+			if (Length < 2 || Length > 1024)
+			{
+				throw new CommandLineException("length should be between 2 and 1024");
+			}
+		}
 
 		public override string ExecuteCore()
 		{
