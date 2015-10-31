@@ -7,7 +7,7 @@ namespace CGen.CommandLine
 	{
 		[Parameter("length,l",
 			Description = "how many bytes to generate",
-			Default = 64,
+			Default = 32,
 			Position = 1)]
 		public int Length { get; set; }
 
