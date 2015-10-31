@@ -16,7 +16,7 @@ namespace CGen.CommandLine
 		{
 			if (Length < 1 || Length > 1024)
 			{
-				throw new CommandLineException("length should be between 2 and 1024");
+				throw new CommandLineException("length should be between 1 and 1024") { Kind = CommandLineExceptionKind.Message };
 			}
 		}
 
