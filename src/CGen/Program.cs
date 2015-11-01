@@ -1,5 +1,4 @@
 ﻿using CGen.CommandLine;
-using Konsola;
 using Konsola.Parser;
 
 namespace CGen
