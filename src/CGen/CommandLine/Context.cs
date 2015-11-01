@@ -11,8 +11,10 @@ namespace CGen.CommandLine
 		typeof(GuidGeneratorCommand),
 		typeof(SHA1Command),
 		typeof(SHA256Command),
+		typeof(SHA512Command),
 		typeof(MD5Command),
-		typeof(SHA512Command))]
+		typeof(AesCommand),
+		typeof(RijndaelCommand))]
 	public class Context : ContextBase
 	{
 	}
