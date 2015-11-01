@@ -10,8 +10,10 @@ namespace CGen.CommandLine
 {
 	public abstract class Command : CommandBase<Context>
 	{
-		[Parameter("name", Description = "the file name to output the result to")]
-		public string FileName { get; set; }
+		private Encoding _encoding;
+
+		[Parameter("name", Description = "the path name to output the result to")]
+		public string PathName { get; set; }
 
 		[Parameter("encoding,e", Description = "the encoding to work with", Default = EncodingKind.Unicode)]
 		public EncodingKind EncodingKind { get; set; }
@@ -20,6 +22,10 @@ namespace CGen.CommandLine
 		{
 			get
 			{
+				if (_encoding != null)
+				{
+					return _encoding;
+				}
 				switch (EncodingKind)
 				{
 					case EncodingKind.UTF8:
@@ -30,18 +36,22 @@ namespace CGen.CommandLine
 						return Encoding.Unicode;
 				}
 			}
+			set
+			{
+				_encoding = value;
+			}
 		}
 
 		public override void ExecuteCommand()
 		{
 			var result = ExecuteCore();
-			if (string.IsNullOrWhiteSpace(FileName))
+			if (string.IsNullOrWhiteSpace(PathName))
 			{
 				Console.WriteLine(result);
 			}
 			else
 			{
-				File.WriteAllText(FileName, result, Encoding);
+				File.WriteAllText(PathName, result, Encoding);
 			}
 		}
 

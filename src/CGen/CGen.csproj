@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommandLine\AesCommand.cs" />
+    <Compile Include="CommandLine\AsymmetricAlgorithmCommandBase.cs" />
     <Compile Include="CommandLine\Command.cs" />
     <Compile Include="CommandLine\Context.cs" />
     <Compile Include="CommandLine\EncodingKind.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="CommandLine\MD5Command.cs" />
     <Compile Include="CommandLine\RandomGeneratorCommand.cs" />
     <Compile Include="CommandLine\RijndaelCommand.cs" />
+    <Compile Include="CommandLine\RSACommand.cs" />
     <Compile Include="CommandLine\SHA1Command.cs" />
     <Compile Include="CommandLine\SHA256Command.cs" />
     <Compile Include="CommandLine\SHA512Command.cs" />

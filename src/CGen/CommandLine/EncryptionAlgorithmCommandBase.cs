@@ -11,7 +11,7 @@ namespace CGen.CommandLine
 		[Parameter("input", Description = "the file's name or path that contains the data")]
 		public string InputFileName { get; set; }
 
-		[Parameter("key", Description = "the key to use in the algorithm", IsMandatory = true)]
+		[Parameter("key", Description = "the key to use in the algorithm")]
 		public string Key { get; set; }
 
 		[Parameter("encrypt", Description = "encrypt the data")]
@@ -23,21 +23,21 @@ namespace CGen.CommandLine
 		[OnParsed]
 		public virtual void OnParsed()
 		{
-			if ((IsEncrypt && IsDecrypt) || (!IsEncrypt && !IsDecrypt))
-			{
-				throw new CommandLineException("Specify only one option to do, either encrypt or decrypt.")
-				{
-					Kind = CommandLineExceptionKind.Message,
-				};
-			}
+			//if ((IsEncrypt && IsDecrypt) || (!IsEncrypt && !IsDecrypt))
+			//{
+				//throw new CommandLineException("Specify only one option to do, either encrypt or decrypt.")
+				//{
+					//Kind = CommandLineExceptionKind.Message,
+				//};
+			//}
 
-			if (Data == null && InputFileName == null)
-			{
-				throw new CommandLineException("Either data or a file name should be provided.")
-				{
-					Kind = CommandLineExceptionKind.Message,
-				};
-			}
+			//if (Data == null && InputFileName == null)
+			//{
+			//	throw new CommandLineException("Either data or a file name should be provided.")
+			//	{
+			//		Kind = CommandLineExceptionKind.Message,
+			//	};
+			//}
 
 			if (InputFileName != null && !File.Exists(InputFileName))
 			{

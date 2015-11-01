@@ -14,7 +14,8 @@ namespace CGen.CommandLine
 		typeof(SHA512Command),
 		typeof(MD5Command),
 		typeof(AesCommand),
-		typeof(RijndaelCommand))]
+		typeof(RijndaelCommand),
+		typeof(RSACommand))]
 	public class Context : ContextBase
 	{
 	}
