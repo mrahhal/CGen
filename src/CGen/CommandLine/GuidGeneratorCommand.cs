@@ -1,15 +1,15 @@
 ﻿using System;
-using Konsola;
 using Konsola.Parser;
 
 namespace CGen.CommandLine
 {
 	[Command("guid", Description = "generate a new guid")]
-	public class GuidGeneratorCommand : Command
+	public class GuidGeneratorCommand : CommandBase<Context>
 	{
-		public override string ExecuteCore()
+		public override void ExecuteCommand()
 		{
-			return Guid.NewGuid().ToString();
+			var guid = Guid.NewGuid().ToString();
+			Console.WriteLine(guid);
 		}
 	}
 }

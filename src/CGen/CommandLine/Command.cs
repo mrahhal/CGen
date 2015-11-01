@@ -12,7 +12,7 @@ namespace CGen.CommandLine
 	{
 		private Encoding _encoding;
 
-		[Parameter("name", Description = "the path name to output the result to")]
+		[Parameter("output,o", Description = "the path to output the result to")]
 		public string PathName { get; set; }
 
 		[Parameter("encoding,e", Description = "the encoding to work with", Default = EncodingKind.Unicode)]
@@ -28,8 +28,8 @@ namespace CGen.CommandLine
 				}
 				switch (EncodingKind)
 				{
-					case EncodingKind.UTF8:
-						return Encoding.UTF8;
+					case EncodingKind.ASCII:
+						return Encoding.ASCII;
 
 					case EncodingKind.Unicode:
 					default:
@@ -47,14 +47,14 @@ namespace CGen.CommandLine
 			var result = ExecuteCore();
 			if (string.IsNullOrWhiteSpace(PathName))
 			{
-				Console.WriteLine(result);
+				Console.WriteLine(Encoding.GetString(result));
 			}
 			else
 			{
-				File.WriteAllText(PathName, result, Encoding);
+				File.WriteAllBytes(PathName, result);
 			}
 		}
 
-		public abstract string ExecuteCore();
+		protected abstract byte[] ExecuteCore();
 	}
 }

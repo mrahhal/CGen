@@ -9,13 +9,10 @@ namespace CGen.CommandLine
 	[IncludeCommands(
 		typeof(RandomGeneratorCommand),
 		typeof(GuidGeneratorCommand),
-		typeof(SHA1Command),
-		typeof(SHA256Command),
-		typeof(SHA512Command),
-		typeof(MD5Command),
-		typeof(AesCommand),
-		typeof(RijndaelCommand),
-		typeof(RSACommand))]
+		typeof(HashCommand),
+		typeof(EncryptionCommand),
+		typeof(DecryptionCommand),
+		typeof(GenerateCommand))]
 	public class Context : ContextBase
 	{
 	}

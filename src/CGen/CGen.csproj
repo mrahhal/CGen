@@ -41,22 +41,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CommandLine\AesCommand.cs" />
-    <Compile Include="CommandLine\AsymmetricAlgorithmCommandBase.cs" />
     <Compile Include="CommandLine\Command.cs" />
     <Compile Include="CommandLine\Context.cs" />
+    <Compile Include="CommandLine\DecryptionCommand.cs" />
     <Compile Include="CommandLine\EncodingKind.cs" />
     <Compile Include="CommandLine\EncryptionAlgorithmCommandBase.cs" />
+    <Compile Include="CommandLine\EncryptionCommand.cs" />
+    <Compile Include="CommandLine\GenerateCommand.cs" />
     <Compile Include="CommandLine\GuidGeneratorCommand.cs" />
-    <Compile Include="CommandLine\HashAlgorithmCommandBase.cs" />
-    <Compile Include="CommandLine\MD5Command.cs" />
+    <Compile Include="CommandLine\HashCommand.cs" />
     <Compile Include="CommandLine\RandomGeneratorCommand.cs" />
-    <Compile Include="CommandLine\RijndaelCommand.cs" />
-    <Compile Include="CommandLine\RSACommand.cs" />
-    <Compile Include="CommandLine\SHA1Command.cs" />
-    <Compile Include="CommandLine\SHA256Command.cs" />
-    <Compile Include="CommandLine\SHA512Command.cs" />
-    <Compile Include="CommandLine\SymmetricAlgorithmCommandBase.cs" />
+    <Compile Include="CommandLine\EncryptionDecryptionAlgorithmCommandBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />

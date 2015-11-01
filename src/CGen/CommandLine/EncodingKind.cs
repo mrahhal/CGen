@@ -2,7 +2,7 @@
 {
 	public enum EncodingKind
 	{
-		UTF8,
+		ASCII,
 		Unicode,
 	}
 }

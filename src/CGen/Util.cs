@@ -110,5 +110,18 @@ namespace CGen
 			}
 			return totalRead;
 		}
+
+		public static bool IsInputPiped()
+		{
+			try
+			{
+				var t = Console.KeyAvailable;
+				return false;
+			}
+			catch
+			{
+				return true;
+			}
+		}
 	}
 }

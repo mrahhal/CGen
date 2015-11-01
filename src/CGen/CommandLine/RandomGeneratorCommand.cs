@@ -1,4 +1,6 @@
-﻿using Konsola.Parser;
+﻿using System;
+using System.IO;
+using Konsola.Parser;
 
 namespace CGen.CommandLine
 {
@@ -20,10 +22,22 @@ namespace CGen.CommandLine
 			}
 		}
 
-		public override string ExecuteCore()
+		public override void ExecuteCommand()
 		{
-			var bytes = Util.RandomBytes(Length);
-			return Util.ToHex(bytes);
+			var result = ExecuteCore();
+			if (string.IsNullOrWhiteSpace(PathName))
+			{
+				Console.WriteLine(Util.ToHex(result));
+			}
+			else
+			{
+				File.WriteAllBytes(PathName, result);
+			}
+		}
+
+		protected override byte[] ExecuteCore()
+		{
+			return Util.RandomBytes(Length);
 		}
 	}
 }

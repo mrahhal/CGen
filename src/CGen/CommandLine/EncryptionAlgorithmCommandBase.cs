@@ -23,14 +23,6 @@ namespace CGen.CommandLine
 		[OnParsed]
 		public virtual void OnParsed()
 		{
-			//if ((IsEncrypt && IsDecrypt) || (!IsEncrypt && !IsDecrypt))
-			//{
-				//throw new CommandLineException("Specify only one option to do, either encrypt or decrypt.")
-				//{
-					//Kind = CommandLineExceptionKind.Message,
-				//};
-			//}
-
 			//if (Data == null && InputFileName == null)
 			//{
 			//	throw new CommandLineException("Either data or a file name should be provided.")
@@ -39,10 +31,26 @@ namespace CGen.CommandLine
 			//	};
 			//}
 
+			ValidateInputFileName();
+		}
+
+		protected void ValidateInputFileName()
+		{
 			if (InputFileName != null && !File.Exists(InputFileName))
 			{
 				throw new CommandLineException(
 					string.Format("The file at \"{0}\" does not exist.", InputFileName))
+				{
+					Kind = CommandLineExceptionKind.Message,
+				};
+			}
+		}
+
+		protected void ValidateForEncryptDecryptOnly()
+		{
+			if ((IsEncrypt && IsDecrypt) || (!IsEncrypt && !IsDecrypt))
+			{
+				throw new CommandLineException("Specify only one option to do, either encrypt or decrypt.")
 				{
 					Kind = CommandLineExceptionKind.Message,
 				};
