@@ -41,7 +41,7 @@ namespace CGen.CommandLine
 			}
 			else
 			{
-				File.WriteAllText(FileName, result);
+				File.WriteAllText(FileName, result, Encoding);
 			}
 		}
 
