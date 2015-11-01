@@ -51,6 +51,7 @@
     <Compile Include="CommandLine\SHA1Command.cs" />
     <Compile Include="CommandLine\SHA256Command.cs" />
     <Compile Include="CommandLine\SHA512Command.cs" />
+    <Compile Include="CommandLine\SymmetricAlgorithmCommandBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util.cs" />
