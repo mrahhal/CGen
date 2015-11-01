@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.Text;
+using System.IO;
 using System.Security.Cryptography;
 using Konsola.Parser;
 
@@ -53,7 +55,8 @@ namespace CGen.CommandLine
 		{
 			using (var algorithm = CreateAsymmetricAlgorithm(Type))
 			{
-				algorithm.ImportCspBlob(key);
+				var k = Convert.FromBase64String(Encoding.ASCII.GetString(key));
+				algorithm.ImportCspBlob(k);
 				return algorithm.Encrypt(data, false);
 			}
 		}

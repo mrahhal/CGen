@@ -15,20 +15,28 @@ namespace CGen.CommandLine
 
 		public override void ExecuteCommand()
 		{
-			var publicKey = GenerateKey(false);
-			var privateKey = GenerateKey(true);
+			var publicK = default(byte[]);
+			var privateK = default(byte[]);
+			GenerateKeys(out publicK, out privateK);
+			var publicKey = Convert.ToBase64String(publicK);
+			var privateKey = Convert.ToBase64String(privateK);
 
 			var name = FileName;
-			File.WriteAllBytes(Path.Combine(PathName, name + ".pub"), publicKey);
-			File.WriteAllBytes(Path.Combine(PathName, name), privateKey);
+			File.WriteAllText(Path.Combine(PathName, name + ".pub"), publicKey, Encoding.Default);
+			File.WriteAllText(Path.Combine(PathName, name), privateKey, Encoding.Default);
 		}
 
 		[OnParsed]
 		public void OnParsed()
 		{
-			if (PathName == null || !Directory.Exists(PathName))
+			if (PathName != null && !Directory.Exists(PathName))
 			{
 				throw new CommandLineException("The output should represent a directory.");
+			}
+
+			if (PathName == null)
+			{
+				PathName = Environment.CurrentDirectory;
 			}
 
 			if (FileName == null)
@@ -42,11 +50,12 @@ namespace CGen.CommandLine
 			return new RSACryptoServiceProvider();
 		}
 
-		public byte[] GenerateKey(bool includePrivateParameters)
+		private void GenerateKeys(out byte[] publicKey, out byte[] privateKey)
 		{
 			using (var algorithm = Create())
 			{
-				return algorithm.ExportCspBlob(includePrivateParameters);
+				publicKey = algorithm.ExportCspBlob(false);
+				privateKey = algorithm.ExportCspBlob(true);
 			}
 		}
 
