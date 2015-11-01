@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Security.Cryptography;
-using System.Text;
 using Konsola.Parser;
 
 namespace CGen.CommandLine
@@ -17,10 +16,12 @@ namespace CGen.CommandLine
 		public virtual void OnParsed()
 		{
 			if (Data == null && InputFileName == null)
+			{
 				throw new CommandLineException("Either data or a file name should be provided.")
 				{
 					Kind = CommandLineExceptionKind.Message,
 				};
+			}
 
 			if (InputFileName != null && !File.Exists(InputFileName))
 			{
@@ -45,7 +46,7 @@ namespace CGen.CommandLine
 		{
 			using (var algorithm = CreateHashAlgorithm())
 			{
-				var bytes = Encoding.Unicode.GetBytes(data);
+				var bytes = Encoding.GetBytes(data);
 				return Util.ToHex(algorithm.ComputeHash(bytes));
 			}
 		}

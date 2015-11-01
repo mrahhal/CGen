@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CommandLine\Command.cs" />
     <Compile Include="CommandLine\Context.cs" />
+    <Compile Include="CommandLine\EncodingKind.cs" />
     <Compile Include="CommandLine\GuidGeneratorCommand.cs" />
     <Compile Include="CommandLine\HashAlgorithmCommandBase.cs" />
     <Compile Include="CommandLine\MD5Command.cs" />
