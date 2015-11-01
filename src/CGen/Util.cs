@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -73,6 +74,41 @@ namespace CGen
 			var bytes = new byte[length];
 			crypto.GetBytes(bytes);
 			return bytes;
+		}
+
+		public static byte[] ReadBytesToEnd(Stream stream)
+		{
+			var buffer = new byte[16];
+			var offset = 0;
+			while (true)
+			{
+				var toRead = buffer.Length - offset;
+				var read = ReadEx(stream, buffer, offset, toRead);
+				offset += read;
+				if (read < buffer.Length - offset)
+				{
+					break;
+				}
+				var temp = new byte[buffer.Length * 2];
+				Buffer.BlockCopy(buffer, 0, temp, 0, buffer.Length);
+				buffer = temp;
+			}
+			var result = new byte[offset];
+			Buffer.BlockCopy(buffer, 0, result, 0, result.Length);
+			return result;
+		}
+
+		public static int ReadEx(Stream stream, byte[] buffer, int offset, int count)
+		{
+			var totalRead = default(int);
+			while (totalRead != count)
+			{
+				int read = stream.Read(buffer, offset + totalRead, count - totalRead);
+				if (read == 0)
+					break;
+				totalRead += read;
+			}
+			return totalRead;
 		}
 	}
 }
