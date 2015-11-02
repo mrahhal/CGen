@@ -43,10 +43,10 @@
   <ItemGroup>
     <Compile Include="CommandLine\Command.cs" />
     <Compile Include="CommandLine\Context.cs" />
-    <Compile Include="CommandLine\DecryptionCommand.cs" />
+    <Compile Include="CommandLine\DecryptCommand.cs" />
     <Compile Include="CommandLine\EncodingKind.cs" />
     <Compile Include="CommandLine\EncryptionAlgorithmCommandBase.cs" />
-    <Compile Include="CommandLine\EncryptionCommand.cs" />
+    <Compile Include="CommandLine\EncryptCommand.cs" />
     <Compile Include="CommandLine\GenerateCommand.cs" />
     <Compile Include="CommandLine\GuidGeneratorCommand.cs" />
     <Compile Include="CommandLine\HashCommand.cs" />

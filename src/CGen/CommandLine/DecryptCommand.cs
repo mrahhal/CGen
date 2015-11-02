@@ -7,7 +7,7 @@ using Konsola.Parser;
 namespace CGen.CommandLine
 {
 	[Command("decrypt", Description = "decrypt data using various types of algorithms")]
-	public class DecryptionCommand : EncryptionDecryptionAlgorithmCommandBase
+	public class DecryptCommand : EncryptionDecryptionAlgorithmCommandBase
 	{
 		protected override byte[] ExecuteCore()
 		{

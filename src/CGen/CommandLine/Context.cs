@@ -10,8 +10,8 @@ namespace CGen.CommandLine
 		typeof(RandomGeneratorCommand),
 		typeof(GuidGeneratorCommand),
 		typeof(HashCommand),
-		typeof(EncryptionCommand),
-		typeof(DecryptionCommand),
+		typeof(EncryptCommand),
+		typeof(DecryptCommand),
 		typeof(GenerateCommand))]
 	public class Context : ContextBase
 	{
