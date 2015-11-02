@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Konsola, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Konsola.1.0.3-d-071820151101\lib\net40\Konsola.dll</HintPath>
+      <HintPath>..\..\packages\Konsola.1.0.3\lib\net40\Konsola.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
