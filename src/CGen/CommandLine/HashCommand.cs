@@ -6,7 +6,7 @@ using Konsola.Parser;
 
 namespace CGen.CommandLine
 {
-	[Command("hash", Description = "hashes the input data using various types of algorithms")]
+	[Command("hash", Description = "hash data using various types of algorithms")]
 	public class HashCommand : Command
 	{
 		[Parameter("algorithm",
