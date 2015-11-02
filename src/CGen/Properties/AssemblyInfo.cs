@@ -2,7 +2,7 @@
 
 [assembly: AssemblyTitle("CGen")]
 [assembly: AssemblyProduct("CGen")]
-[assembly: AssemblyDescription("Generates different kinds of cryptographic keys")]
+[assembly: AssemblyDescription("Hashes, encrypts, decrypts data using various kinds of algorithms.")]
 [assembly: AssemblyCompany("MRH")]
 [assembly: AssemblyCopyright("Copyright © 2015")]
 

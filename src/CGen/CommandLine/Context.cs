@@ -3,7 +3,7 @@
 namespace CGen.CommandLine
 {
 	[ContextOptions(
-		Description = "Generates different kinds of cryptographic keys.",
+		Description = "Hashes, encrypts, decrypts data using various kinds of algorithms.",
 		HandleEmptyInvocationAsHelp = true,
 		InvokeMethods = true)]
 	[IncludeCommands(
