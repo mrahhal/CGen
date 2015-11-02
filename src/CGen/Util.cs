@@ -70,10 +70,12 @@ namespace CGen
 			if (length < 1)
 				throw new ArgumentOutOfRangeException(nameof(length));
 
-			var crypto = new RNGCryptoServiceProvider();
-			var bytes = new byte[length];
-			crypto.GetBytes(bytes);
-			return bytes;
+			using (var crypto = new RNGCryptoServiceProvider())
+			{
+				var bytes = new byte[length];
+				crypto.GetBytes(bytes);
+				return bytes;
+			}
 		}
 
 		public static byte[] ReadBytesToEnd(Stream stream)
