@@ -40,7 +40,7 @@ cgen [encrypt|decrypt] rsa [options]
 ```
 
 ### Public/private keys generation
-- `RSA`: `cgen generate `
+- `RSA`
 
 ```
 cgen generate [options]
