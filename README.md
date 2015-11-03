@@ -32,7 +32,7 @@ cgen hash [sha1|sha256|sha512] [options]
 cgen [encrypt|decrypt] [aes|rijndael] [options]
 ```
 
-### Assymetric encryption
+### Asymmetric encryption
 - `RSA`
 
 ```
